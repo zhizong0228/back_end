@@ -24,22 +24,6 @@ Route::get('/contact_us', 'FrontController@contact_us'); //聯絡我們
 
 Route::post('/store_contact','FrontController@store_contact');
 
-Auth::routes(['register'=>false,'reset=>false'] );
+Auth::routes();
 
-Route::get('/admin', 'HomeController@index')->name('home');
-
-Route::get('/admin/news', 'HomeController@index')->middleware('auth');
-
-
-
-
-Route::prefix('admin')->middleware(['auth'])->group(function(){
-    Route::get('news', 'NewsController@index');
-    Route::get('news/create', 'NewsController@create');
-    Route::post('news/store', 'NewsController@store');
-    Route::get('news/edit/{news_id}', 'NewsController@edit');
-    Route::post('news/update/{news_id}', 'NewsController@update');
-    Route::get('news/destroy/{news_id}', 'NewsController@destroy');
-});
-
-
+Route::get('/home', 'HomeController@index')->name('home');

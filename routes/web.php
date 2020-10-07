@@ -24,6 +24,6 @@ Route::get('/contact_us', 'FrontController@contact_us'); //聯絡我們
 
 Route::post('/store_contact','FrontController@store_contact');
 
-Auth::routes();
+Auth::routes(['register' => false,'reset' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'HomeController@index')->name('home');
